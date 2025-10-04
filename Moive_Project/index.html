@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <!-- link css bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <!-- link js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Link icon bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./Style/Respon.css">
+    <link rel="stylesheet" href="./Style/Bennner.css">
+    <!--link css-->
+    <link rel="stylesheet" href="./Style/card.css">
+    <style>
+        .model-dialog.w-100{
+
+            max-width: 80% !important; /* ទទឺង​ 80%*/
+        }
+    </style>
+    
+</head>
+<body>
+    <!--Navbar-->
+    <header class="container-fluid  sticky-top p-0 bg-dark shadow-sm">
+        <nav class="container navbar navbar-expand-lg justify-content-between px-4 px-md-0 ">
+            <!--Logo-->
+        <a href="" class="navbar-brand fs-1 text-light">Movies</a>
+        <!--button sidebar-->
+        <button class="btn btn-tranparent d-lg-none border-0 text-light fs-3" data-bs-toggle="offcanvas" data-bs-target="#openSidebar">
+            <i class="bi bi-list"></i>
+        </button>
+        <!--menu-->
+        <div class="collapse navbar-collapse justify-content-end" >
+            <ul class="navbar-nav align-items-center gap-5">
+                <li><a href="" class="nav-link text-light fs-5">Home</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Schedule</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Movies</a></li>
+                <li><a href="" class="nav-link text-light fs-5">News</a></li>
+                <li>
+                    <i class="bi bi-search text-light fs-5" style="cursor:pointer;"
+                    data-bs-toggle="modal" data-bs-target="#openSearch"
+                    ></i>
+                </li>
+                <button class="btn btn-danger px-4">Sign In</button>
+            </ul>
+        </div>
+        </nav>
+        <!--model Search-->
+        <div class="container-fluid">
+            <div class="modal fade mt-5 pt-1" id="openSearch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog w-80">
+                <div class="modal-content">
+                    <div class="modal-header py-4">
+                    <input type="text" class="form-control" placeholder="Enter Your Name Movies...">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--open Sidebar-->
+        <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="openSidebar" >
+        <div class="offcanvas-header border-bottom ">
+            <h5 class="offcanvas-title text-light">Movie</h5>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+        <ul class="navbar-nav gap-3">
+                <li><a href="" class="nav-link text-light fs-5">Home</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Schedule</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Movies</a></li>
+                <li><a href="" class="nav-link text-light fs-5">News</a></li>
+                <li>
+                    <i class="bi bi-search text-light fs-5" style="cursor:pointer;"
+                    data-bs-toggle="modal" data-bs-target="#openSearch"
+                    ></i>
+                </li>
+                <button class="btn btn-danger mt-3 px-4">Sign In</button>
+            </ul>
+        </div>
+    </div>
+    </header>
+
+    <!--main-content-->
+    <main class="container-fluid p-0 bg-black">
+        <!--banner-->
+        <section class="w-100 banner">
+            <div class="opacity"></div>
+            <div class="container d-flex flex-column justify-content-center ps-md-5 pt-md-5 h-100 position-absolute z-3">
+                <div class="col-12 col-md-6 mt-md-5 ps-md-5 pt-md-5">
+                <h1 class="text-light title_benner">Movie Title</h1>
+                <p class="text-light my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum fuga ex veniam laboriosam dolorum magnam, corrupti dolore ad molestiae debitis quos, voluptate harum praesentium
+                    eligendi consequatur adipisci officiis maiores.</p>
+
+                    <button class="btn btn-danger px-5">Book Now</button>
+                </div>
+            </div>
+        </section>
+        <!--title and search movie-->
+        <section class="w-100 ">
+            <div class="container p-0">
+                <div class="row m-auto align-items-center py-4 border-danger border-bottom">
+                <!--title-->
+                <div class="col-8 p-0">
+                <h4 class="text-light m-0">OPENING THIS WEEK</h4>
+                </div>
+                <!--input search-->
+                <div class="col-4 p-0 position-relative">
+                    <input type="text" placeholder="search.." class="form-control shadow-none">
+                    <i class="bi bi-search text-dark fs-6 position-absolute" style="right: 16px; top:8px"></i>
+                </div>
+            </div>
+            <!--button item-->
+            <!-- Nav tabs -->
+                    <ul class="nav nav-tabs justify-content-center  gap-4 py-5" id="myTab" role="tablist">
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All Films</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">2 D</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">3 D</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">IMAX</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">IMAX 3D</button>
+                        </li>
+                    </ul>
+            
+        </section>
+
+        <!--Movie Card-->
+        <section class="w-100">
+                <div class="container p-0">
+
+                    <!-- Tab content -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="all-films" role="tabpanel" aria-labelledby="all-films-tab">All</div>
+                        <div class="tab-pane fade" id="two-d" role="tabpanel" aria-labelledby="two-d-tab">2D Content</div>
+                        <div class="tab-pane fade" id="three-d" role="tabpanel" aria-labelledby="three-d-tab">3D Content</div>
+                        <div class="tab-pane fade" id="imax" role="tabpanel" aria-labelledby="imax-tab">IMAX Content</div>
+                        <div class="tab-pane fade" id="imax3d" role="tabpanel" aria-labelledby="imax3d-tab">IMAX 3D Content</div>
+                    </div>
+                <!--main card-->
+                <div class="row m-auto p-0 pb-5">
+                        <!--card 1-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+                        <!--card 2-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 3-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 4-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 5-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 6-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 7-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 8-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        </div>
+                        </div>
+                        </div>
+                </div>
+                </div>
+
+                
+        </section>
+
+        <!--coming soon-->
+        <div class="container py-5">
+            <h2 class="mv-4 text-white">Coming soon--</h2>
+            <div class="row g-4">
+            <!--Movie card 1-->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="moive-card">
+            <span class="coming-soon-label">Coming Soon</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKklJtOxzAi8mU1NVGLDE-LbFy76V9zSpW9Q&s" 
+            class="w-100 h-100 rounded-2 img-thumbnail" alt="Movie 1 Poster">
+            <div class="movie-overlay">Action Movie 1</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+    </main>
+    <!--Footer-->
+    <footer class="container-fluid p-0" id="footer">
+            <div class="container bg-primary " style="height: 80%;">
+            
+            </div>
+            <h4 class="w-100 bg-success d-flex justify-content-center align-items-center text-light"
+            style="height:20%;">&copy; copyright @2025  | All Right reserved by
+            <span  class=" text-warning ms-2">Tath Kongkea</span>
+            </h4>
+    </footer>
+
+</body>
+</html>

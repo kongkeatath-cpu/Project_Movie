@@ -1,0 +1,16 @@
+@media (max-width:575.98px){
+    .offcanvas{
+        width: 75% !important;
+    }
+}
+
+@media (min-width:57598px){
+    .offcanvas{
+        width: 50% !important;
+    }
+}
+
+#footer{
+    height: 400px;
+    background-color: rgb(1, 41,66);
+}
