@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <!-- link css bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <!-- link js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Link icon bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./Style/Respon.css">
+    <link rel="stylesheet" href="./Style/Bennner.css">
+    <!--link css-->
+    <link rel="stylesheet" href="./Style/card.css">
+    <style>
+        .model-dialog.w-100{
+
+            max-width: 80% !important; /* ទទឺង​ 80%*/
+        }
+    </style>
+    
+</head>
+<body>
+    <!--Navbar-->
+    <header class="container-fluid  sticky-top p-0 bg-dark shadow-sm">
+        <nav class="container navbar navbar-expand-lg justify-content-between px-4 px-md-0 ">
+            <!--Logo-->
+        <a href="" class="navbar-brand fs-1 text-light">Movies</a>
+        <!--button sidebar-->
+        <button class="btn btn-tranparent d-lg-none border-0 text-light fs-3" data-bs-toggle="offcanvas" data-bs-target="#openSidebar">
+            <i class="bi bi-list"></i>
+        </button>
+        <!--menu-->
+        <div class="collapse navbar-collapse justify-content-end" >
+            <ul class="navbar-nav align-items-center gap-5">
+                <li><a href="" class="nav-link text-light fs-5">Home</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Schedule</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Movies</a></li>
+                <li><a href="" class="nav-link text-light fs-5">News</a></li>
+                <li>
+                    <i class="bi bi-search text-light fs-5" style="cursor:pointer;"
+                    data-bs-toggle="modal" data-bs-target="#openSearch"
+                    ></i>
+                </li>
+                <button class="btn btn-danger px-4">Sign In</button>
+            </ul>
+        </div>
+        </nav>
+        <!--model Search-->
+        <div class="container-fluid">
+            <div class="modal fade mt-5 pt-1" id="openSearch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog w-80">
+                <div class="modal-content">
+                    <div class="modal-header py-4">
+                    <input type="text" class="form-control" placeholder="Enter Your Name Movies...">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--open Sidebar-->
+        <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="openSidebar" >
+        <div class="offcanvas-header border-bottom ">
+            <h5 class="offcanvas-title text-light">Movie</h5>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+        <ul class="navbar-nav gap-3">
+                <li><a href="" class="nav-link text-light fs-5">Home</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Schedule</a></li>
+                <li><a href="" class="nav-link text-light fs-5">Movies</a></li>
+                <li><a href="" class="nav-link text-light fs-5">News</a></li>
+                <li>
+                    <i class="bi bi-search text-light fs-5" style="cursor:pointer;"
+                    data-bs-toggle="modal" data-bs-target="#openSearch"
+                    ></i>
+                </li>
+                <button class="btn btn-danger mt-3 px-4">Sign In</button>
+            </ul>
+        </div>
+    </div>
+    </header>
+
+    <!--main-content-->
+    <main class="container-fluid p-0 bg-black">
+        <!--banner-->
+        <section class="w-100 banner">
+            <div class="opacity"></div>
+            <div class="container d-flex flex-column justify-content-center ps-md-5 pt-md-5 h-100 position-absolute z-3">
+                <div class="col-12 col-md-6 mt-md-5 ps-md-5 pt-md-5">
+                <h1 class="text-light title_benner">Movie Title</h1>
+                <p class="text-light my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum fuga ex veniam laboriosam dolorum magnam, corrupti dolore ad molestiae debitis quos, voluptate harum praesentium
+                    eligendi consequatur adipisci officiis maiores.</p>
+
+                    <button class="btn btn-danger px-5">Book Now</button>
+                </div>
+            </div>
+        </section>
+        <!--title and search movie-->
+        <section class="w-100 ">
+            <div class="container p-0">
+                <div class="row m-auto align-items-center py-4 border-danger border-bottom">
+                <!--title-->
+                <div class="col-8 p-0">
+                <h4 class="text-light m-0">OPENING THIS WEEK</h4>
+                </div>
+                <!--input search-->
+                <div class="col-4 p-0 position-relative">
+                    <input type="text" placeholder="search.." class="form-control shadow-none">
+                    <i class="bi bi-search text-dark fs-6 position-absolute" style="right: 16px; top:8px"></i>
+                </div>
+            </div>
+            <!--button item-->
+            <!-- Nav tabs -->
+                    <ul class="nav nav-tabs justify-content-center  gap-4 py-5" id="myTab" role="tablist">
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All Films</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">2 D</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">3 D</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">IMAX</button>
+                        </li>
+                        <li class="nav-item col-auto" role="presentation">
+                            <button class=" btn btn-outline-danger text-light py-2" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">IMAX 3D</button>
+                        </li>
+                    </ul>
+            
+        </section>
+
+        <!--Movie Card-->
+        <section class="w-100">
+                <div class="container p-0">
+
+                    <!-- Tab content -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="all-films" role="tabpanel" aria-labelledby="all-films-tab">All</div>
+                        <div class="tab-pane fade" id="two-d" role="tabpanel" aria-labelledby="two-d-tab">2D Content</div>
+                        <div class="tab-pane fade" id="three-d" role="tabpanel" aria-labelledby="three-d-tab">3D Content</div>
+                        <div class="tab-pane fade" id="imax" role="tabpanel" aria-labelledby="imax-tab">IMAX Content</div>
+                        <div class="tab-pane fade" id="imax3d" role="tabpanel" aria-labelledby="imax3d-tab">IMAX 3D Content</div>
+                    </div>
+                <!--main card-->
+                <div class="row m-auto p-0 pb-5">
+                        <!--card 1-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Venom_%282018_film%29_poster.png/250px-Venom_%282018_film%29_poster.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Venom</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+                        <!--card 2-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://sunday-production.com/storage/photos/1/movies/m1.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">វិញ្ញាណបីសាចជញ្ជាក់ឈាម</h5>
+                        <p class="m-0 text-secondary">140m | Horror</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 3-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://sunday-production.com/storage/photos/1/movies/m2.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">ព្រាយក្បាលប្រាំ៨</h5>
+                        <p class="m-0 text-secondary">120m | Horror</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 4-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BNWIxMjZmNTQtNzkxZi00NTU5LThhOGYtODEyZGYyNDdkNTQxXkEyXkFqcGc@._V1_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Ben10:Ultimate Alien </h5>
+                        <p class="m-0 text-secondary">126m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 5-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/ben10.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Ben10</h5>
+                        <p class="m-0 text-secondary">50m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 6-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7by61eH_UiJ3JfYuuY0p5a4r5byfvx0XUq_-J39l0zwlOlhVMsD2gOrnWHfImThsrdg8&usqp=CAU" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Ben10</h5>
+                        <p class="m-0 text-secondary">103m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 7-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BNzY3ZDVhMDMtOWQ1NS00NDc2LWI2OGQtY2YxOTdjMDMxZjJiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Oggy</h5>
+                        <p class="m-0 text-secondary">120m | oggy</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 8-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://i.redd.it/o5ayszyhraya1.png" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers SPD</h5>
+                        <p class="m-0 text-secondary">120m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 9-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BYmM5YWIzMDMtYWZkYS00MGFjLThlNDgtN2ZjNDE0ZjA1OWYwXkEyXkFqcGc@._V1_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers Mighty Morphin</h5>
+                        <p class="m-0 text-secondary">130m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 10-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://preview.redd.it/out-of-these-5-seasons-of-power-rangers-which-one-do-you-v0-lrb8oc70g6db1.jpg?width=640&crop=smart&auto=webp&s=18c64b751429eb6a6290f54cb7b67f0392928a09" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers Ninja Storm</h5>
+                        <p class="m-0 text-secondary">110m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 11-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BMTM5NTIwMjg1Ml5BMl5BanBnXkFtZTcwOTY2MDY0OQ@@._V1_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers Megaforce</h5>
+                        <p class="m-0 text-secondary">132m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 12-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BYmI4MjE4ZDItMWRmYy00YTcxLTkxM2ItNGUzY2YxYmQwZDdiXkEyXkFqcGc@._V1_QL75_UX190_CR0,6,190,281_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers TimeForce</h5>
+                        <p class="m-0 text-secondary">128m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 13-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://www.kapowtoys.co.uk/uploads/2024/11/Threezero-Power-Rangers-Turbo-Set-of-5-10.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers Turbo</h5>
+                        <p class="m-0 text-secondary">108m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 14-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BMTk1MDc4MjY0MV5BMl5BanBnXkFtZTcwNjExNzMzNw@@._V1_FMjpg_UX1000_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers Samurai</h5>
+                        <p class="m-0 text-secondary">123m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 15-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://images.justwatch.com/poster/322005435/s332/season-4" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers ZEO</h5>
+                        <p class="m-0 text-secondary">118m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 16-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/tr/f/fe/Poster-prmf.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Power Rangers Mystic Force</h5>
+                        <p class="m-0 text-secondary">128m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 17-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/5/51/Vagabond_2019.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Vagabond_2019</h5>
+                        <p class="m-0 text-secondary">148m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 18-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://www.lemon8-app.com/seo/image?item_id=7325519860816183814&index=2&sign=55b19842839435702a187b616925b700" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">True Beauty</h5>
+                        <p class="m-0 text-secondary">129m | Fandom</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 19-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://cdn.tatlerasia.com/asiatatler/i/ph/2021/01/22171504-start-up-cp1_cover_1000x1430.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Start-up</h5>
+                        <p class="m-0 text-secondary">118m | Romantic</p>
+                        <button class="btn btn-danger  mt-3 px-4 ">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 20-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/6/6e/DescendantsoftheSun.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Descendants of the Sun</h5>
+                        <p class="m-0 text-secondary">118m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 21-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BMTRjY2FmOGEtYTk5OC00MjdjLTlmNDMtOTdkZTMwNmIzMGY1XkEyXkFqcGc@._V1_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Let Me Be Your Knight</h5>
+                        <p class="m-0 text-secondary">111m | Fandom </p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 22-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-40XA9f96kaTsVKbA3VZ0b8AG30c6nyIiFeDa6jYtDzquflsc0VYYZxsmGBAIUFnB408&usqp=CAU" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Vincenzo</h5>
+                        <p class="m-0 text-secondary">118m | Fandom</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 23-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://thesmartlocal.kr/wp-content/uploads/2023/02/Historical-Korean-dramas-3.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">The test of time</h5>
+                        <p class="m-0 text-secondary">128m | Romantic</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 24-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ38VGRXoYYp9n5ZIIFKPhpdHjM0mwBO8y4AQR00ZB7wVM_BDQ2PA2R9Zr25chNhlMDLsY&usqp=CAU" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Gu Family Book</h5>
+                        <p class="m-0 text-secondary">218m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4 ">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 25-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://ih1.redbubble.net/image.5658255647.2872/flat,750x,075,f-pad,750x1000,f8f8f8.webp" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Family by Choice </h5>
+                        <p class="m-0 text-secondary">120m | Funny</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 26-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://ih1.redbubble.net/image.5323197421.3139/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Twenty Five Twenty One</h5>
+                        <p class="m-0 text-secondary">100m | Romantic</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 27-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://i.pinimg.com/474x/cc/d9/5f/ccd95fae4e1a2272edda90f7f410a07c.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">My Demon</h5>
+                        <p class="m-0 text-secondary">58m | Romantic</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--card 28-->
+                        <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIqiLaz6C6Jlmpho8tuv9qig6oHB8kOnsnpA&s" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Spider-Man </h5>
+                        <p class="m-0 text-secondary">113m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Watch Now <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+
+                </div>
+                </div>
+        </section>
+        <!--Coming soon-->
+        <section class="movie-section w-100">
+        <div class="container">
+        <h2 class="section-title text-light">Coming Soon</h2>
+    
+        <div class="row m-auto p-0 pb-5">
+        <!--Card-Movie 1-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://dir.giggster.com/assets/5f6683e0-384f-4183-8546-10d28f121348/5f6683e0-384f-4183-8546-10d28f121348.jpg?fit=cover&width=400&quality=80" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Squid Game</h5>
+                        <p class="m-0 text-secondary">140m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming Soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!-- Card-Movie 2-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsBaFQMu_XncTmZD8u2Klu1kGY0QcI7E800ayuEGFO2TcgFCSe-GlgLFMJ-7MZXbPvgl8&usqp=CAU" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Avengers 2</h5>
+                        <p class="m-0 text-secondary">208m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming Soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--Card-Movie 3-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/I/61aAQ00LxnL._AC_UF894,1000_QL80_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Titanic</h5>
+                        <p class="m-0 text-secondary">128m | Romantic</p>
+                        <button class="btn  btn-danger mt-3 px-4">Coming soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!---Card-Movie 4-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROEmVA7-MVUA7OBrc3_lZjMiw0faIYxGMpXMnWGzU9oXJPUHZpmO4qr8FrXONswocg3po&usqp=CAU" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">A-teen(2018)</h5>
+                        <p class="m-0 text-secondary">128m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--Card-Movie 5-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzxJr1Y624R-gCkUhSGPXyBAhqQ-v9uO1ewQ&s" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">`Stranger`</h5>
+                        <p class="m-0 text-secondary">113m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--Card-Movie 6-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://m.media-amazon.com/images/M/MV5BYWE3NmE2NzUtOGMzMi00NWNjLWJhYmQtYjQ2MjI4YzAzN2JiXkEyXkFqcGc@._V1_.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">Neath Love Story </h5>
+                        <p class="m-0 text-secondary">108m | Romantic</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--Card-Movie 7-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://upload.wikimedia.org/wikipedia/en/d/d2/Crofilm.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">The Crocodile </h5>
+                        <p class="m-0 text-secondary">138m | Action</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+
+                        <!--Card-Movie 8-->
+            <div class="col-3 my-3" id="card-movie">
+                        <div  class="card bg-black border-1 border-white">
+                        <div class="card-header">
+                        <img class="w-100 h-100 rounded-2 img-thumbnail"
+                        src="https://static.wixstatic.com/media/b35366_930ea3cbbb02482d91e79e9fb44ac0b4~mv2.jpeg/v1/fill/w_980,h_1206,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b35366_930ea3cbbb02482d91e79e9fb44ac0b4~mv2.jpeg" alt="">
+                        </div>
+                        <div class="card-body">
+                        <h5 class="text-light">ម៉ែក្រឡាភ្លើង</h5>
+                        <p class="m-0 text-secondary">118m | Horror</p>
+                        <button class="btn btn-danger mt-3 px-4">Coming soon <i class="bi bi-tv"></i></button>
+                        </div>
+                        </div>
+                        </div>
+        </div>
+        </div>
+        </section>
+        
+    </main>
+    <!--Footer-->
+    <footer class="container-fluid p-0" id="footer">
+            <div class="container bg-primary " style="height: 80%;">
+            </div>
+            <h4 class="w-100 bg-success d-flex justify-content-center align-items-center text-light"
+            style="height:20%;">&copy; copyright @2025  | All Right reserved by
+            <span  class=" text-warning ms-2">Tath Kongkea</span>
+            </h4>
+            
+    </footer>
+
+</body>
+</html>
